@@ -7,8 +7,8 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class TodoServer {
-    int port;
-    Todos todos;
+    private int port;
+    private Todos todos;
 
     public TodoServer(int port, Todos todos) {
         this.port = port;
@@ -48,4 +48,11 @@ public class TodoServer {
         return g.fromJson(jsonString, GsonString.class);
     }
 
+    public void setPort(int port) {
+        this.port = port;
+    }
+
+    public void setTodos(Todos todos) {
+        this.todos = todos;
+    }
 }

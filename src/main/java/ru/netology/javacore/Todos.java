@@ -4,34 +4,21 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class Todos {
-    ArrayList<String> todos = new ArrayList<>();
-    Iterator<String> todosIterator;
-
+    protected List<String> todos = new ArrayList<>();
 
     public void addTask(String task) {
         if (task != null) {
             todos.add(task);
-        }
-        else {
+        } else {
             System.out.println("Incorrect task!");
         }
     }
 
     public void removeTask(String task) {
 
-        if (task != null){
-            boolean removeComplete = false;
-            todosIterator = todos.iterator();
-            while (todosIterator.hasNext() && !removeComplete) {
-                String nextTodo = todosIterator.next();
-                if (nextTodo.equals(task)) {
-                    todosIterator.remove();
-                    removeComplete = true;
-                    System.out.println("Remove task complete");
-                }
-            }
-            if (!removeComplete) {
-                System.out.println("Incorrect task!");
+        if (task != null) {
+            if (!todos.removeIf(x -> x.equals(task))) {
+                System.out.println("Remove task complete");
             }
         } else {
             System.out.println("Incorrect task!");
