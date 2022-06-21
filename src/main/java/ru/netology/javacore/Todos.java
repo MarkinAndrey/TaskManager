@@ -15,11 +15,8 @@ public class Todos {
     }
 
     public void removeTask(String task) {
-
         if (task != null) {
-            if (!todos.removeIf(x -> x.equals(task))) {
-                System.out.println("Remove task complete");
-            }
+            todos.remove(task);
         } else {
             System.out.println("Incorrect task!");
         }
